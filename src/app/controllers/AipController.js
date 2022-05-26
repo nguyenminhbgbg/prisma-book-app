@@ -29,11 +29,22 @@ class SiteController{
         })
         res.json(ingredients);
     }
-    // [GET]  api/Chapter:id
+    // [GET]  api/Chapter/:id
     async ChaptersId(req, res, next){
-        console.log(req.params);
+        const bookId = req.params.id
         const ingredients = await prisma.chapter.findMany({
-            where: { id: req.params.id },
+            where: {
+                bookId
+              },
+        })
+        res.json(ingredients);
+    }
+    async BooksWithGenres(req, res, next){
+        const genre = req.params.genre
+        const ingredients = await prisma.book.findMany({
+            where: {
+                genre
+              },
         })
         res.json(ingredients);
     }

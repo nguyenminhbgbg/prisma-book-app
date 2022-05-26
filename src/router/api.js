@@ -10,8 +10,8 @@ router.get('/Genres', ApiController.Genres);
 router.get('/Books', ApiController.Books);
 router.get('/Chapters', ApiController.Chapters);
 
-router.get('/Chapters:id', ApiController.ChaptersId);
-
+router.get('/Chapters/:id', ApiController.ChaptersId);
+router.get('/Books/:genre', ApiController.BooksWithGenres);
 
 // api create book, and chapter
 router.post('/Books/create', ApiController.createBook);
